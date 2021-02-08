@@ -1,17 +1,21 @@
 Enemy canon;
+Explosion explo;
 
 void setup (){
-  PImage fondo; 
-  fondo = loadImage("fondo.jpg");
-  image (fondo, 0, 0, width, height); 
-  size (1000, 600);
-  canon = new Enemy (500, 300);              //cañon
  
+  size (1000, 600);
+  
+  canon = new Enemy (65, 400, 120, 120);              //cañon
+  explo = new Explosion();
+  
 }
 
 void draw(){
   
-  canon.display();
+  canon.fondo();   //Fondo
+  canon.move();
+  canon.display(); //Cañon
+  explo.mostrar();
 }
 
 
@@ -20,27 +24,71 @@ void draw(){
 class Enemy{
   
   //Atributos
-  
-  float x, y;          //Posicion
-  float speed = 5.5;   //Velocidada de mov
+       PImage fondo;                        //Fondo
+       float x, y, ancho, largo;            //Posicion y tamaño
+       PImage[] images = new PImage[13];    // Arreglo
+       int currentFrames;                    //Frames
+
+
   
 //Constructor
-  
-  Enemy ( float posX, float posY){
-    
+  Enemy ( float posX, float posY, float anchoini, float largoini ){
     x = posX;
-    y = posY;     
+    y = posY; 
+    ancho = anchoini;
+    largo = largoini;
+    currentFrames = 0;
+    
+   for (int i = 0; i < images.length; i++) {
+       String imageName = "frame-" + nf(i, 4) + ".png";
+        images[i] = loadImage(imageName); // Cargar cada imagen
+         }
   }
+
+
 
 //Metodos
 
-void display(){
+void fondo(){                          //Fondo
   
-  PImage img2;
+  fondo = loadImage("fondo.jpg");
+  image (fondo, 0, 0, width, height);   
+}
+
+
+
+void move(){
   
-  img2 = loadImage ("canon11.png");
-  image (img2, 100, 350, 200, 200);
-  
+   if(keyPressed){
+     if(keyCode == RIGHT){
+       currentFrames++;
+       if(currentFrames > 12){
+         currentFrames=12;
+       }
+     }
+     if(keyCode == LEFT){
+       currentFrames--;
+       if(currentFrames<0){
+       currentFrames=0;
+     }
+   }
+   }
+}
+
+
+void display(){          //Cañon
+  //frameRate(20);
+  image(images[currentFrames], x, y, ancho, largo);
 }
 }
+
+
+
+  
+  
+  
+  
+  
+  
+  
   
