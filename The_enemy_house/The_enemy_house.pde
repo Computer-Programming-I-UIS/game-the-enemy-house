@@ -5,8 +5,8 @@ PImage fondo;
 
 void setup () {
 
-  size (1000, 600);
-  canon = new Enemy (65, 400, 120, 120);              //cañon
+  size (1020, 600);
+  canon = new Enemy (105, 462, 100, 100);              //cañon
   explo = new Explosion();
   space = new Car();
   fondo = loadImage("fondo.jpg");
@@ -19,7 +19,7 @@ void draw() {
   background(fondo);
   canon.move();
   canon.display(); //Cañon
-  explo.mostrar();
+  //explo.mostrar();
   space.move();
 }
 
@@ -56,13 +56,13 @@ class Enemy {
   void move() {
 
     if (keyPressed) {
-      if (keyCode == RIGHT) {
+      if (keyCode == DOWN) {
         currentFrames++;
         if (currentFrames > 12) {
           currentFrames=12;
         }
       }
-      if (keyCode == LEFT) {
+      if (keyCode == UP) {
         currentFrames--;
         if (currentFrames<0) {
           currentFrames=0;
@@ -73,7 +73,8 @@ class Enemy {
 
 
   void display() {          //Cañon
-    //frameRate(20);
+
+    frameRate(20);
     image(images[currentFrames], x, y, ancho, largo);
   }
 }
@@ -94,23 +95,28 @@ class Car {
       imagesderecha[i] = loadImage("Prame_" + i + ".png");
       imagesizquierda[i] = loadImage("frame_" + i + ".png");
     }
-    frameRate(10);
+    //frameRate(10);
     imageMode(CENTER);
   }
+
   void move() {
+     
     if (irderecha) {
-      image(imagesderecha[imageIndex], x, 460);
+      //frameRate(10);
+      image(imagesderecha[imageIndex], x, 460, 200, 200);
+      
     } else {
-      image(imagesizquierda[imageIndex], x, 460);
+      //frameRate(10);
+      image(imagesizquierda[imageIndex], x, 460, 200, 200);
     }
     imageIndex = (imageIndex+1) % imagesderecha.length;
     x = x + vx;
     if (x > 890) {
-      vx = -15;
+      vx = -10;
       irderecha = false;
     }
     if (x < 300) {
-      vx = 15;
+      vx = 10;
       irderecha = true;
     }
   }
