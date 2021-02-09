@@ -1,6 +1,3 @@
-void mousePressed(){
-explo.start(160, 400);
-}
 
 
 class Explosion{
@@ -21,9 +18,8 @@ class Explosion{
   
   Explosion(){
     
-    PImage spritesheet;
+    PImage spritesheet = loadImage("explosion.png");
     
-    spritesheet = loadImage("explosion.png");
     
     frames = new PImage[5*5];
     for (int y=0; y < 5; y++){

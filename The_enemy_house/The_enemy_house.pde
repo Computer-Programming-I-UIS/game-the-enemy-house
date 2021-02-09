@@ -1,6 +1,7 @@
 Enemy canon;
 Explosion explo;
 Car space;
+Bala balin;
 PImage fondo; 
 
 void setup () {
@@ -9,6 +10,7 @@ void setup () {
   canon = new Enemy (105, 462, 100, 100);              //cañon
   explo = new Explosion();
   space = new Car();
+  balin = new Bala();
   fondo = loadImage("fondo.jpg");
   image(fondo, 0, 0);   
   fondo.resize(width, height);
@@ -19,8 +21,10 @@ void draw() {
   background(fondo);
   canon.move();
   canon.display(); //Cañon
-  //explo.mostrar();
+  balin.show();
+  explo.mostrar();
   space.move();
+  
 }
 
 
