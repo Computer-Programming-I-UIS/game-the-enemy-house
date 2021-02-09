@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> e38ec81ce4abf92bb94bc07c92b11644ad1aca70
 void mousePressed(){
 explo.start(160, 400);
 }
