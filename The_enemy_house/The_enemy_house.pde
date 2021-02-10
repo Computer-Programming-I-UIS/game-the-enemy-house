@@ -24,7 +24,6 @@ void draw() {
   balin.show();
   explo.mostrar();
   space.move();
-  
 }
 
 
@@ -104,11 +103,10 @@ class Car {
   }
 
   void move() {
-     
+
     if (irderecha) {
       //frameRate(10);
       image(imagesderecha[imageIndex], x, 460, 200, 200);
-      
     } else {
       //frameRate(10);
       image(imagesizquierda[imageIndex], x, 460, 200, 200);
