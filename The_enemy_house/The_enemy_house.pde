@@ -3,11 +3,9 @@ Explosion explo;
 Car space;
 Bala balin;
 PImage fondo; 
-PImage atbuca;
 PImage canonmenu;
 PImage fondomenu, fondomenu1, fondomenu2, fondomenu3;
 boolean introscreen = true;
-PFont press;
 PFont letra, letra2;
 
 void setup () {
@@ -20,12 +18,6 @@ void setup () {
   fondo = loadImage("fondo2.png");
   image(fondo, 0, 0);   
   fondo.resize(width, height);
-  atbuca = loadImage("atbuca.jpg");
-  image(atbuca, 0, 0);
-  atbuca.resize(width + 1200, height + 650);
-  press = loadFont("press.vlw");
-  textFont(press);
-  
   canonmenu = loadImage("canonmenu.png");           //Imagen cañon menu       
   fondomenu1 = loadImage("muro222.png");            //imagen muro
   fondomenu2 = loadImage("muro77.png");             //Imagen hueco
