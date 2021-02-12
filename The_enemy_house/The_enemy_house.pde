@@ -3,10 +3,13 @@ Explosion explo;
 Car space;
 Bala balin;
 PImage fondo; 
+PImage atbuca;
+boolean introscreen = true;
+PFont press;
 
 void setup () {
 
-  size (1020, 600);
+  size (1000, 600);
   canon = new Enemy (105, 462, 100, 100);              //cañon
   explo = new Explosion();
   space = new Car();
@@ -14,16 +17,32 @@ void setup () {
   fondo = loadImage("fondo.jpg");
   image(fondo, 0, 0);   
   fondo.resize(width, height);
+  atbuca = loadImage("atbuca.jpg");
+  image(atbuca, 0, 0);
+  atbuca.resize(width + 1000, height + 650);
+  press = loadFont("press.vlw");
+  textFont(press);
 }
 
 void draw() {
 
   background(fondo);
-  canon.move();
-  canon.display(); //Cañon
-  balin.show();
-  explo.mostrar();
-  space.move();
+  if (keyPressed) {
+    if (key == 's' || key == 'S') {
+      introscreen = false;
+    }
+  }
+  if (introscreen == true) {
+    image(atbuca, 0, 0);
+    textSize(20);
+    text("Press [S] para continuar", 400, height/2);
+  } else {
+    canon.move();
+    canon.display(); //Cañon
+    balin.show();
+    explo.mostrar();
+    space.move();
+  }
 }
 
 
