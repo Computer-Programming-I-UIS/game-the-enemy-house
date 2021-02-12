@@ -1,7 +1,4 @@
-void mousePressed() {
-  balin.start(155, 400);
-  explo.start(155, 450);
-}
+
 
 class Bala {
 
@@ -84,6 +81,8 @@ class Bala {
       // Dibujar bala
       fill(0);
       ellipse(x, y, 2*rPelota, 2*rPelota);
+      if ( y >= 480){
+        exist = false;}
     }
   }
 }

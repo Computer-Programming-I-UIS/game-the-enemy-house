@@ -4,38 +4,71 @@ Car space;
 Bala balin;
 PImage fondo; 
 PImage atbuca;
+PImage canonmenu;
+PImage fondomenu, fondomenu1, fondomenu2, fondomenu3;
 boolean introscreen = true;
 PFont press;
+PFont letra, letra2;
 
 void setup () {
 
-  size (1000, 600);
+  size (1200, 600);
   canon = new Enemy (105, 462, 100, 100);              //cañon
   explo = new Explosion();
   space = new Car();
   balin = new Bala();
-  fondo = loadImage("fondo.jpg");
+  fondo = loadImage("fondo2.png");
   image(fondo, 0, 0);   
   fondo.resize(width, height);
   atbuca = loadImage("atbuca.jpg");
   image(atbuca, 0, 0);
-  atbuca.resize(width + 1000, height + 650);
+  atbuca.resize(width + 1200, height + 650);
   press = loadFont("press.vlw");
   textFont(press);
+  
+  canonmenu = loadImage("canonmenu.png");           //Imagen cañon menu       
+  fondomenu1 = loadImage("muro222.png");            //imagen muro
+  fondomenu2 = loadImage("muro77.png");             //Imagen hueco
+  fondomenu3 = loadImage("muro7.png");              //Imagen ladrillos
+  letra = createFont("NAPAV___.ttf", 55);           //Fuente 
+  letra2 = createFont("XXII_DIRTY-ARMY.ttf", 50);   //Fuente2 
+  
 }
+
+/*________________________________________________________________________________*/
 
 void draw() {
 
   background(fondo);
   if (keyPressed) {
-    if (key == 's' || key == 'S') {
+    //if (key == 's' || key == 'S') {
+      if (key == ENTER){
       introscreen = false;
     }
   }
   if (introscreen == true) {
-    image(atbuca, 0, 0);
-    textSize(20);
-    text("Press [S] para continuar", 400, height/2);
+    //image(atbuca, 0, 0);
+    
+    //textSize(20);
+    //text("Press [S] para continuar", 400, height/2);
+     //background(159, 160, 52);
+     image(fondomenu3, 300,  260, 700, 700); 
+     image (fondomenu2, 310, 320, 500, 500);  
+     image(canonmenu, 310, 320, 300, 300);
+     image(fondomenu1, 900, 270, 500, 500);
+    
+     textSize(25);
+     fill( 173, 158, 19);
+     textAlign(CENTER);
+     textFont(letra2);
+     text("EMPEZAR [ENTER]", 850, 300);
+     text("CREDITOS [C]", 850, 350);
+     text("SALIR [S]", 850, 400);
+     fill(0);
+     textFont(letra);
+     text("THE ENEMY CAR", 850, 180);
+    
+    
   } else {
     canon.move();
     canon.display(); //Cañon
@@ -45,6 +78,16 @@ void draw() {
   }
 }
 
+/*____________________________________________________________________________*/
+
+void mousePressed() {
+ 
+  balin.start(155, 400);
+  explo.start(155, 450);
+}
+
+
+/*______________________________________________________________________________*/
 
 //Clase
 
@@ -100,6 +143,10 @@ class Enemy {
     image(images[currentFrames], x, y, ancho, largo);
   }
 }
+
+
+/*_______________________________________________________________________________*/
+
 
 class Car {
 
