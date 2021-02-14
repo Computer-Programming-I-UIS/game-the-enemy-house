@@ -13,7 +13,7 @@ int menu = 0, menu2 = 0;
 void setup () {
 
   size (1200, 600);
-  canon = new Enemy (105, 462, 100, 100);              //cañon
+  canon = new Enemy (75, 460, 100, 100);              //cañon
   explo = new Explosion();
   space = new Car();
   balin = new Bala();
@@ -78,7 +78,7 @@ void keyPressed(){
     menu = 1;
   }
   
-  if(key == 'c'|| key == 'C'  && k[3] == 0 && menu == 0){
+  if(key == 'c'|| key == 'C'  && k[3] == 0 && menu == -1){
     menu = -4;
   
     
@@ -88,13 +88,20 @@ void keyPressed(){
   
   
    if(key == ESC){
-      key=0;
-      menu = -2;
-      if(menu2==0)
-      advert = "SALIR DEL JUEGO?";
-      else if (menu2==1)
-      advert="SALIR AL MENU PRINCIPAL?";}
+    
+    key = 0;
+    
+      
+    menu = -2; 
+    if(menu2 == 0)
+    advert = "SALIR DEL JUEGO?";
+    else if (menu2 == 1)
+    advert = "SALIR AL MENU PRINCIPAL?";
+  }
    
+  
+  
+  
 }
   
 /*____________________________________________________________________________*/
@@ -180,7 +187,7 @@ class Car {
 
   int maxImages = 2;
   int imageIndex = 0;
-  int x = 890;
+  int x = 1100;
   int vx = 15;
   boolean irderecha = false;
 
@@ -200,39 +207,45 @@ class Car {
 
     if (irderecha) {
       //frameRate(10);
-      image(imagesderecha[imageIndex], x, 460, 200, 200);
+      image(imagesderecha[imageIndex], x, 490, 200, 200);
     } else {
       //frameRate(10);
-      image(imagesizquierda[imageIndex], x, 460, 200, 200);
+      image(imagesizquierda[imageIndex], x, 490, 200, 200);
     }
     imageIndex = (imageIndex+1) % imagesderecha.length;
     x = x + vx;
-    if (x > 890) {
+    if (x > 1100) {
       vx = -10;
       irderecha = false;
     }
-    if (x < 300) {
+    if (x < 400) {
       vx = 10;
       irderecha = true;
     }
   }
   
-  
+/*_________________________________________________________________________________*/
   
   void creditos(){
-  //if(menu == -1){  
+   
   background(0);
   textFont(letra2);
   textSize(40);
   fill(133, 133, 133);
+  textAlign(CENTER);
   text("CREDITOS ", width/2, height/2);
   textSize(20);
-  text("VOLVER [V]", 55, 580);
-  if(menu == -4 && key == 'v' || key == 'V'){
-    key = 0;
-    menu = -1;
+  textAlign(CORNER);
+  text("VOLVER [V]", 35, 550);
+  text("SALIR [ESC]", 35, 570);
+  
+  if(key == 'v' || key == 'V'){
+    
+           if(menu2 == 0){
+            menu = 0;
+            }      
+           
   }
-  //}
   }
   
   
