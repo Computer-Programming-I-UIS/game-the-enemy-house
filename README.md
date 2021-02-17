@@ -6,6 +6,8 @@ Sergio Camilo Santos uribe
 ## Descripción:
 En un lago en tierras prohibidas sus habitantes han decidido proteger sus aguas, para esto  han contruido un cañon evitando asi que gente maligna llegue en sus vehiculo a robar y contaminarlas.
 ## Clasificación por edades:
+## Tipo de juego:
+Acción.
 Para toda la familia.
 ## Requisitos:
 Librería processing.sound
