@@ -5,7 +5,7 @@ Ronald Fernando Páez Sarmiento
 Sergio Camilo Santos uribe
 ## Descripción:
 En un lago en tierras prohibidas han decicdido proteger sus aguas, para esto los habitantes han contruido un cañon evitando asi que gente mala llegue en u vehiculo a robar y contaminar sus aguas.
-## clasificación por edades:
+## Clasificación por edades:
 Para toda la familia.
 ## Requisitos:
 Librería processing.sound
