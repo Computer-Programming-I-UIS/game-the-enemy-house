@@ -1,28 +1,36 @@
+import processing.sound.*;
+
 Enemy canon;
-Explosion explo;
+//Explosion explo;
 Car space;
 Bala balin;
-PImage fondo; 
-PImage canonmenu;
+PImage fondo, fondo2; 
+PImage canonmenu, canonplay, balas, carrotutorial, canondisparo, barrapotencia, fuego;
 PImage fondomenu, fondomenu1, fondomenu2, fondomenu3;
 PFont letra, letra2;
 float[] k = new float[4]; 
 String advert = " ";
-int menu = 0, menu2 = 0; 
+int menu = 0, menu2 = 0, modo=0; 
+SoundFile menusong, gameplaysong;
+
 
 void setup () {
 
   size (1200, 600);
   canon = new Enemy (75, 460, 100, 100);              //cañon
-  explo = new Explosion();
+  //explo = new Explosion();
   space = new Car();
   balin = new Bala();
-  fondo = loadImage("fondo2.png");
+  fondo = loadImage("fondo22.png");
   image(fondo, 0, 0);   
   fondo.resize(width, height);
-  
+  fondo2 = loadImage("fondo2.png");
+  image(fondo2, 0, 0);
+  fondo2.resize(width,height);
   letra = createFont("NAPAV___.ttf", 55);           //Fuente 
   letra2 = createFont("XXII_DIRTY-ARMY.ttf", 50);   //Fuente2 
+  menusong = new SoundFile(this, "menusong.wav");
+  gameplaysong = new SoundFile(this, "gameplaysong.wav");
   
 }
 
@@ -34,13 +42,20 @@ void draw() {
     
   case 1:
   
+  if(!gameplaysong.isPlaying()){
+    gameplaysong.play(1);
+    gameplaysong.amp(0.5);
+  }
+  if(menusong.isPlaying()){
+    menusong.stop();
+  }
+  
   menu2 = menu;
- 
-  background(fondo);
+  background(fondo2);
   canon.move();
   canon.display(); //Cañon
   balin.show();
-  explo.mostrar();
+  //explo.mostrar();
   space.move();
   break;
   
@@ -51,9 +66,18 @@ void draw() {
   case -1:
   menu2 = 0;
   background(fondo);
-  k = menu (k[0]); //Función menú
-  break;
   
+  if(!menusong.isPlaying()){
+    menusong.play();
+    menusong.amp(0.5);
+  }
+   if (gameplaysong.isPlaying()){
+     gameplaysong.stop();
+   }
+  
+  k = menu (k[0], k[1]); //Función menú
+  break;
+    
   case -2:
   menu = salir();  
   break;
@@ -62,9 +86,6 @@ void draw() {
   exit();
   break;
   
-  case -4:
-  space.creditos();
-  break;
   
   
   }
@@ -73,35 +94,33 @@ void draw() {
 /*____________________________________________________________________________*/
 
 void keyPressed(){
-  
+ 
   if(key == ENTER && menu == 0){
     menu = 1;
   }
-  
-  if(key == 'c'|| key == 'C'  && k[3] == 0 && menu == -1){
-    menu = -4;
-  
-    
-      
-      
+    if(menu != 1 ){
+    if(key == 'c'|| key == 'C' && menu==0 && modo == 0){
+    modo = 1;
+    menu = -1; 
+  }
   }
   
+    if(menu != 1){
+    if(key == 't' || key == 'T' && menu == 0 && modo == 0){
+    modo = 2;
+    menu = -1; 
+  }
+  }
   
    if(key == ESC){
-    
-    key = 0;
-    
-      
+    key = 0;   
     menu = -2; 
     if(menu2 == 0)
     advert = "SALIR DEL JUEGO?";
-    else if (menu2 == 1)
+    else if (menu2 == 1) 
     advert = "SALIR AL MENU PRINCIPAL?";
+    text("culeo", 150,150);
   }
-   
-  
-  
-  
 }
   
 /*____________________________________________________________________________*/
@@ -109,7 +128,8 @@ void keyPressed(){
 void mousePressed() {
   if ( menu == 1){
   balin.start(155, 400);
-  explo.start(155, 450);}
+  //explo.start(155, 450);
+}
 }
 
 
@@ -168,11 +188,7 @@ class Enemy {
     frameRate(20);
     image(images[currentFrames], x, y, ancho, largo);
   }
-  
-  
-  
-  
-  
+
 }
 
 
@@ -224,33 +240,4 @@ class Car {
     }
   }
   
-/*_________________________________________________________________________________*/
-  
-  void creditos(){
-   
-  background(0);
-  textFont(letra2);
-  textSize(40);
-  fill(133, 133, 133);
-  textAlign(CENTER);
-  text("CREDITOS ", width/2, height/2);
-  textSize(20);
-  textAlign(CORNER);
-  text("VOLVER [V]", 35, 550);
-  text("SALIR [ESC]", 35, 570);
-  
-  if(key == 'v' || key == 'V'){
-    
-           if(menu2 == 0){
-            menu = 0;
-            }      
-           
-  }
-  }
-  
-  
-  
-  
 }
-
-/*____________________________________________________________________________*/
