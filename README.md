@@ -21,7 +21,7 @@ Librería processing.sound
 Archivo de letra .ttf
 
 ## Créditos:
-A huaban.com plataforma para descargan ilustraciones
+A https://huaban.com/ plataforma para descargan ilustraciones
 
 A freepong.es plataforma para descargar imagenes png
 
