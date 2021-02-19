@@ -3,9 +3,9 @@
  ![./Media_Readme/Imagenreadme1.jpg](./Media_Readme/Imagenreadme1.jpg)
  
 ## Hecho por:
-Ronald Fernando Páez Sarmiento
+Ronald Fernando Páez Sarmiento 2192551
 
-Sergio Camilo Santos uribe
+Sergio Camilo Santos uribe 
 ## Descripción:
 En un lago en tierras prohibidas sus habitantes han decidido proteger sus aguas, para esto  han contruido un cañon evitando asi que gente maligna llegue en sus vehiculo a robar y contaminarlas.
 ## Clasificación por edades:
@@ -16,25 +16,25 @@ Para toda la familia.
 ## Tipo de juego:
 Acción.
 ## Requisitos:
-Librería processing.sound
+* Librería processing.sound
 
-Archivo de letra .ttf
+* Archivo de letra .ttf
 
 ## Créditos:
-A https://huaban.com/ plataforma para descargan ilustraciones
+* https://huaban.com/ plataforma para descargan ilustraciones
 
-A freepong.es plataforma para descargar imagenes png
+* https://www.freepng.es/ plataforma para descargar imagenes png
 
-Al usuario _petal de huaban.com, creador de la imagen de fondo
+* https://freesound.org/ plataforma para descargar audios
 
-A fonts2u.com plataforma para descargar fuentes
+* https://fonts2u.com/ plataforma para descargar fuentes
 
-Al usuario font-face de fonts2u.com, creador de la fuente ''napalm vergio''
+* Usuario font-face de fonts2u.com, creador de la fuente ''napalm vergio''
 
- Al usuario LECTER_JOHNSON de fonts2u.com, creador de la fuente ''XXII-ARMY''
+* Usuario LECTER_JOHNSON de fonts2u.com, creador de la fuente ''XXII-ARMY''
  
- A freesound.org plataforma para descargar audios
+* Usuario DDmyzik de freesound.org, creador del audio del menu
  
- Al usuario DDmyzik de freesound.org, creador del audio del menu
- 
- Al usuario FoolBoyMedia de freesound.org, creador del audio del gameplay
+* Usuario FoolBoyMedia de freesound.org, creador del audio del gameplay
+
+* Usuario _petal de huaban.com, creador de la imagen de fondo
