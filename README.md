@@ -1,4 +1,7 @@
  # The enemy car
+ 
+ ![./Media_Readme/Imagenreadme1.jpg](./Media_Readme/Imagenreadme1.jpg)
+ 
 ## Hecho por:
 Ronald Fernando Páez Sarmiento
 
@@ -7,6 +10,9 @@ Sergio Camilo Santos uribe
 En un lago en tierras prohibidas sus habitantes han decidido proteger sus aguas, para esto  han contruido un cañon evitando asi que gente maligna llegue en sus vehiculo a robar y contaminarlas.
 ## Clasificación por edades:
 Para toda la familia.
+
+![./Media_Readme/clasificacion.png](./Media_Readme/clasificacion.png)
+
 ## Tipo de juego:
 Acción.
 ## Requisitos:
