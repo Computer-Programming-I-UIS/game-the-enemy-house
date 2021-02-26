@@ -224,14 +224,14 @@ class Car {
   boolean vivo = true;
   int anchoMedios, alturaMedios;
 
-  PImage [] imagesderecha = new PImage[maxImages];
-  PImage [] imagesizquierda = new PImage[maxImages];
+  PImage  imagesderecha; 
+  PImage  imagesizquierda;
 
   Car(){
-    for (int i = 0; i < imagesderecha.length; i++) {
-      imagesderecha[i] = loadImage("Prame_" + i + ".png");
-      imagesizquierda[i] = loadImage("frame_" + i + ".png");
-    }
+    
+      imagesderecha = loadImage("frame_0.png");
+      imagesizquierda = loadImage("Prame_0.png");
+    
     //frameRate(10);
     //anchoMedios = imagesderecha[0].width/2;
     //alturaMedios = imagesderecha[0].height/2;
@@ -244,20 +244,20 @@ class Car {
     if (vivo) {
       if (irderecha) {
         //frameRate(10);
-        image(imagesderecha[imageIndex], x, y, 200, 150);
+        image(imagesderecha, x, y, 200, 150);
       } else {
         //frameRate(10);
-        image(imagesizquierda[imageIndex], x, y, 200, 150);
+        image(imagesizquierda, x, y, 200, 150);
       }
-      imageIndex = (imageIndex+1) % imagesderecha.length;
+     // imageIndex = (imageIndex+1) % imagesderecha.length;
       x = x + vx;
       if (x > 1100) {
-        vx = -10;
-        irderecha = false;
+        vx = -8;
+        irderecha = true;
       }
       if (x < 400) {
-        vx = 10;
-        irderecha = true;
+        vx = 8;
+        irderecha = false;
       }
     }
   }
