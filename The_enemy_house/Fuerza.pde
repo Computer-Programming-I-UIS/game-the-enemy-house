@@ -38,8 +38,10 @@ class Box {
         rect(x,y,60,30);
         fill(0);
         rect(x+4, y+4, 48, 22);
+        if(mousePressed){
         fill(188,0,0);
         rect(x+4, y+4, 12+fza, 30-8); 
+        }
      }
   }
     

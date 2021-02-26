@@ -2,7 +2,8 @@ import processing.sound.*;
 
 Box fuerza;
 Enemy canon;
-//Explosion explo;
+Explosion explo;
+Explosion explo2;
 Car space;
 Bala balin;
 PImage fondo, fondo2; 
@@ -25,7 +26,8 @@ void setup () {
   size (1200, 600);
   canon = new Enemy (75, 460, 100, 100);              //cañon
   fuerza = new Box();
-  //explo = new Explosion();
+  explo = new Explosion(50, 50);
+  explo2 = new Explosion(200, 200);
   space = new Car();
   balin = new Bala();
   fondo = loadImage("fondo22.png");
@@ -61,16 +63,25 @@ void draw() {
     canon.move();
     canon.display(); //Cañon
     balin.show();
-    //explo.mostrar();
     space.move();
+    explo.mostrar();
+    explo2.mostrar();
     fuerza.see();
     fuerza.start(50, 530);
+    
     if ( (balin.x+balin.rPelota) >= (space.x-space.anchoMedios) && (balin.x-balin.rPelota) <= (space.x+space.anchoMedios) && (balin.y+balin.rPelota) >= (space.y - space.alturaMedios) &&  (balin.y-balin.rPelota) <= (space.y + space.alturaMedios) ) {
-
-      space.vivo = false;
+       explo2.start(space.x, space.y);
+       space.vivo = false;
+      
+     
     }
-
     break;
+    // else if ( space.vivo = true){
+     
+      
+    //}
+
+    
 
 
   case 0:
@@ -85,7 +96,7 @@ void draw() {
       menusong.amp(0.5);
     }
     if (gameplaysong.isPlaying()) {
-      gameplaysong.stop();
+        gameplaysong.stop();
     }
 
     k = menu (k[0], k[1]); //Función menú
@@ -129,7 +140,7 @@ void keyPressed() {
       advert = "SALIR DEL JUEGO?";
     else if (menu2 == 1) 
       advert = "SALIR AL MENU PRINCIPAL?";
-    text("culeo", 150, 150);
+   
   }
 }
 
@@ -144,8 +155,8 @@ void keyPressed() {
 
 void mouseReleased() {
   if (menu==1) {
-    balin.start(155, 400);
-    //explo.start(155, 450);
+    balin.start(105, 410);
+    explo.start(140, 435);
   }
 }
 
@@ -218,7 +229,7 @@ class Car {
 
   int maxImages = 2;
   int imageIndex = 0;
-  int x = 1100, y = 490;
+  float x = 1100, y = 490;
   int vx = 15;
   boolean irderecha = false;
   boolean vivo = true;
@@ -228,7 +239,7 @@ class Car {
   PImage  imagesizquierda;
 
   Car(){
-    
+     
       imagesderecha = loadImage("frame_0.png");
       imagesizquierda = loadImage("Prame_0.png");
     
