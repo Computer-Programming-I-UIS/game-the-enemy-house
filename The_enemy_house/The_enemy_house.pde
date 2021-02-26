@@ -1,5 +1,6 @@
 import processing.sound.*;
 
+Box fuerza;
 Enemy canon;
 //Explosion explo;
 Car space;
@@ -12,12 +13,18 @@ float[] k = new float[4];
 String advert = " ";
 int menu = 0, menu2 = 0, modo=0; 
 SoundFile menusong, gameplaysong;
+float   yep = 0;         
+float   rx,ry,fza= 35;
+PVector cvel;
+float   grilla[][] = new float[1250] [1250]; //Grilla que representa el hitbox
+float   a = 10, l = 10;
 
 
 void setup () {
 
   size (1200, 600);
   canon = new Enemy (75, 460, 100, 100);              //cañon
+  fuerza = new Box();
   //explo = new Explosion();
   space = new Car();
   balin = new Bala();
@@ -57,6 +64,8 @@ void draw() {
   balin.show();
   //explo.mostrar();
   space.move();
+  fuerza.see();
+  fuerza.start(50, 530);
   break;
   
   
@@ -125,14 +134,20 @@ void keyPressed(){
   
 /*____________________________________________________________________________*/
 
-void mousePressed() {
-  if ( menu == 1){
-  balin.start(155, 400);
-  //explo.start(155, 450);
-}
-}
+//void mousePressed() {
+//  if ( menu == 1){
+//  fuerza.start(40, 530);
+//}
+//}
+/*______________________________________________________________________________*/
 
-
+void mouseReleased() {
+  if(menu==1){
+   balin.start(155, 400);
+   //explo.start(155, 450);
+  }
+  }
+  
 /*______________________________________________________________________________*/
 
 //Clase

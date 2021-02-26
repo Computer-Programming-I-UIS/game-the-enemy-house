@@ -1,5 +1,3 @@
-
-
 class Bala {
 
   //Atributos 
@@ -26,7 +24,8 @@ class Bala {
 
       rPelota = 18;
 
-      vo = 20;
+      //vo = 0;
+      vo = fza;
       alpha = 50;
       g = 0.8;
       x = posX;
