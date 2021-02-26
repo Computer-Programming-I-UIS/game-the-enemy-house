@@ -1,6 +1,6 @@
  # The enemy car
  
-
+ ![./Media_Readme/gameplay.png](./Media_Readme/gameplay.png)
  
 ## Hecho por:
 Ronald Fernando Páez Sarmiento 2192551
