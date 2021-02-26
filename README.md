@@ -1,6 +1,6 @@
  # The enemy car
  
- ![./Media_Readme/gameplay.png](./Media_Readme/gameplay.png)
+ ![./Media_Readme/Banner.jpg](./Media_Readme/Banner.jpg)
  
 ## Hecho por:
 Ronald Fernando Páez Sarmiento 2192551
@@ -8,6 +8,10 @@ Ronald Fernando Páez Sarmiento 2192551
 Sergio Camilo Santos uribe 2172315
 ## Descripción:
 Los habitantes del lago Ness han decidido proteger sus aguas, ya que en los ultimos tiempos los carros de empresas nucleares han estado contaminando y destruyendo su habitad. Para esto han contruido un cañon el cual con su poderosa municion destruye todo a su paso, evitando que dichos carros logren su objetivo.
+
+## Gameplay:
+https://www.youtube.com/watch?v=yyWFcbuMxR8
+
 ## Clasificación por edades:
 Para toda la familia.
 
