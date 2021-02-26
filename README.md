@@ -1,6 +1,6 @@
  # The enemy car
  
- ![./Media_Readme/Imagenreadme1.jpg](./Media_Readme/Imagenreadme1.jpg)
+
  
 ## Hecho por:
 Ronald Fernando Páez Sarmiento 2192551
